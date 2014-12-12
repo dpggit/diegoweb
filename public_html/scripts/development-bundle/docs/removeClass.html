@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang=en dir=ltr class=client-nojs>
+<title>Action/render/UI/Effects/removeClass - jQuery Wiki</title>
+<meta charset=UTF-8>
+<meta name=generator content="MediaWiki 1.20alpha">
+<link rel="shortcut icon" href="http://static.jquery.com/favicon.ico">
+<link rel=search type="application/opensearchdescription+xml" href="/mw/opensearch_desc.php" title="jQuery Wiki (en)">
+<link rel=EditURI type="application/rsd+xml" href="http://docs.jquery.com/mw/api.php?action=rsd">
+<link rel=alternate type="application/atom+xml" title="jQuery Wiki Atom feed" href="/mw/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel=stylesheet href="http://docs.jquery.com/mw/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.jqdocs.layout&amp;only=styles&amp;skin=jqdocs&amp;*">
+<link rel=stylesheet href="http://static.jquery.com/files/rocker/css/reset.css">
+<link rel=stylesheet href="http://static.jquery.com/files/rocker/css/screen.css"><meta name=ResourceLoaderDynamicStyles content="">
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+
+/* cache key: jqdocs_live:resourceloader:filter:minify-css:7:36b8e618bf9eb011dd9ccb261d681e92 */
+</style>
+
+<script src="http://docs.jquery.com/mw/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=jqdocs&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Action/render/UI/Effects/removeClass","wgTitle":"Action/render/UI/Effects/removeClass","wgCurRevisionId":0,"wgArticleId":0,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Action/render/UI/Effects/removeClass","wgRestrictionCreate":[]});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":1,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":25,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"jqdocs","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":0,
+"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: jqdocs_live:resourceloader:filter:minify-js:7:4be5a79b993fd2fbf68c5ead663f2e83 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Action_render_UI_Effects_removeClass skin-jqdocs action-view" id=jq-interior>
+<div id="jq-siteContain">
+	<div id="jq-header">
+		<a id="jq-siteLogo" href="http://jquery.com/" title="jQuery Home"><img src="http://static.jquery.com/files/rocker/images/logo_jquery_215x53.gif" width="215" height="53" alt="jQuery: Write Less, Do More."></a>
+
+		<div id="jq-primaryNavigation">
+			<ul>
+				<li class="jq-jquery jq-current"><a href="http://jquery.com/" title="jQuery Home">jQuery</a></li>
+				<li class="jq-plugins"><a href="http://plugins.jquery.com/" title="jQuery Plugins">Plugins</a></li>
+				<li class="jq-ui"><a href="http://jqueryui.com/" title="jQuery UI">UI</a></li>
+				<li class="jq-meetup"><a href="http://meetups.jquery.com/" title="jQuery Meetups">Meetups</a></li>
+				<li class="jq-forum"><a href="http://forum.jquery.com/" title="jQuery Forum">Forum</a></li>
+				<li class="jq-blog"><a href="http://blog.jquery.com/" title="jQuery Blog">Blog</a></li>
+				<li class="jq-about"><a href="http://jquery.org/about" title="About jQuery">About</a></li>
+				<li class="jq-donate"><a href="http://jquery.org/donate" title="Donate to jQuery">Donate</a></li>
+			</ul>
+		</div><!-- /#jq-primaryNavigation -->
+
+		<div id="jq-secondaryNavigation">
+			<ul>
+				<li class="jq-download jq-first"><a href="http://docs.jquery.com/Downloading_jQuery">Download</a></li>
+				<li class="jq-documentation jq-current"><a href="http://docs.jquery.com/">Documentation</a></li>
+				<li class="jq-tutorials"><a href="http://docs.jquery.com/Tutorials">Tutorials</a></li>
+				<li class="jq-bugTracker"><a href="http://dev.jquery.com/">Bug Tracker</a></li>
+				<li class="jq-discussion jq-last"><a href="http://docs.jquery.com/Discussion">Discussion</a></li>
+			</ul>
+		</div><!-- /#jq-secondaryNavigation -->
+
+		<h1>Documentation</h1>
+
+		<form id="jq-primarySearchForm" action="/Special:Search">
+			<div>
+				<input type="hidden" value="1" name="ns0">
+				<label for="primarySearch">Search <span class="jq-jquery">jQuery</span></label>
+				<input type="text" value="" accesskey="f" title="Search jQuery" name="search" id="jq-primarySearch">
+				<button type="submit" id="jq-searchGoButton"><span>Go</span></button>
+			</div>
+		</form>
+	</div><!-- /#jq-header -->
+
+	<div id="jq-content" class="jq-clearfix">
+		<div id="jq-interiorNavigation">
+			<div id="mw-panel" class="noprint">
+				<h5>Getting Started</h5><ul>
+	<li id=n-Main-Page><a href="/Main_Page">Main Page</a>
+	<li id=n-Downloading-jQuery><a href="/Downloading_jQuery">Downloading jQuery</a>
+	<li id=n-How-jQuery-Works><a href="/How_jQuery_Works">How jQuery Works</a>
+	<li id=n-FAQ><a href="/Frequently_Asked_Questions">FAQ</a>
+	<li id=n-Tutorials><a href="/Tutorials">Tutorials</a>
+	<li id=n-Using-jQuery-with-Other-Libraries><a href="/Using_jQuery_with_Other_Libraries">Using jQuery with Other Libraries</a>
+	<li id=n-Variable-Types><a href="/Types">Variable Types</a>
+</ul>
+<h5>API Reference</h5><ul>
+	<li id=n-jQuery-Core><a href="/Core">jQuery Core</a>
+	<li id=n-Selectors><a href="/Selectors">Selectors</a>
+	<li id=n-Attributes><a href="/Attributes">Attributes</a>
+	<li id=n-Traversing><a href="/Traversing">Traversing</a>
+	<li id=n-Manipulation><a href="/Manipulation">Manipulation</a>
+	<li id=n-CSS><a href="/CSS">CSS</a>
+	<li id=n-Events><a href="/Events">Events</a>
+	<li id=n-Effects><a href="/Effects">Effects</a>
+	<li id=n-Ajax><a href="/Ajax">Ajax</a>
+	<li id=n-Utilities><a href="/Utilities">Utilities</a>
+	<li id=n-jQuery-UI><a href="/UI">jQuery UI</a>
+</ul>
+<h5>Plugins</h5><ul>
+	<li id=n-Plugin-Repository><a href="http://plugins.jquery.com/" rel=nofollow>Plugin Repository</a>
+	<li id=n-Authoring><a href="/Plugins/Authoring">Authoring</a>
+</ul>
+<h5>Support</h5><ul>
+	<li id=n-Mailing-List-and-Chat><a href="/Discussion">Mailing List and Chat</a>
+	<li id=n-Submit-New-Bug><a href="http://jquery.com/dev/bugs/new/" rel=nofollow>Submit New Bug</a>
+</ul>
+<h5>About jQuery</h5><ul>
+	<li id=n-Contributors><a href="/Contributors">Contributors</a>
+	<li id=n-History-of-jQuery><a href="/History_of_jQuery">History of jQuery</a>
+	<li id=n-Getting-Involved><a href="/Getting_Involved">Getting Involved</a>
+	<li id=n-Browser-Compatibility><a href="/Browser_Compatibility">Browser Compatibility</a>
+	<li id=n-Code-Style-Guidelines><a href="/JQuery_Core_Style_Guidelines">Code Style Guidelines</a>
+	<li id=n-Design-and-Logos><a href="/Design_and_Identity">Design and Logos</a>
+	<li id=n-Licensing><a href="/Licensing:">Licensing</a>
+	<li id=n-Donate><a href="/Donate">Donate</a>
+</ul>
+<h5>Wiki: Navigation</h5><ul>
+	<li id=n-recentchanges><a href="/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey=r>Recent changes</a>
+	<li id=n-randompage><a href="/Special:Random" title="Load a random page [x]" accesskey=x>Random page</a>
+</ul>
+<h5>Wiki: Toolbox</h5><ul>
+	<li id=t-whatlinkshere><a href="/Special:WhatLinksHere/Action/render/UI/Effects/removeClass" title="A list of all wiki pages that link here [j]" accesskey=j>What links here</a>
+	<li id=t-specialpages><a href="/Special:SpecialPages" title="A list of all special pages [q]" accesskey=q>Special pages</a>
+	<li id=t-print><a href="/mw/index.php?title=Action/render/UI/Effects/removeClass&amp;printable=yes" rel=alternate title="Printable version of this page [p]" accesskey=p>Printable version</a>
+</ul>
+			</div><!-- /#mw-panel -->
+			
+<!-- NAMESPACES -->
+<div>
+	<h5>Wiki: Namespaces</h5>
+	<ul>
+				<li  id="ca-nstab-main" class="selected new"><span><a href="/edit/Action/render/UI/Effects/removeClass?redlink=1"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+				<li  id="ca-talk" class="new"><span><a href="/edit/Talk:Action/render/UI/Effects/removeClass?redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /NAMESPACES -->
+
+<!-- ACTIONS -->
+<div class="emptyPortlet">
+	<h5>Wiki: Actions</h5>
+	<ul>
+	</ul>
+</div>
+
+<!-- /ACTIONS -->
+
+<!-- PERSONAL -->
+<div>
+	<h5>Personal tools</h5>
+	<ul>
+		<li id=pt-login><a href="/mw/index.php?title=Special:UserLogin&amp;returnto=Action%2Frender%2FUI%2FEffects%2FremoveClass" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey=o>Log in</a>
+	</ul>
+</div>
+
+<!-- /PERSONAL -->
+		</div><!-- /#interiorNavigation -->
+		<div id="jq-primaryContent">
+			<div id="column-content">
+				<div id="docs-content" class="mw-body">
+				
+<a id="top"></a>
+<div id="mw-js-message" style="display:none;"></div>
+<!-- firstHeading -->
+<h1 id="firstHeading" class="firstHeading"><span dir="auto">Action/render/UI/Effects/removeClass</span></h1>
+<!-- /firstHeading -->
+<!-- bodyContent -->
+<div id="bodyContent">
+		<!-- tagline -->
+	<div id="siteSub">From jQuery Wiki</div>
+	<!-- /tagline -->
+		<!-- subtitle -->
+	<div id="contentSub"></div>
+	<!-- /subtitle -->
+				<!-- jumpto -->
+	<div id="jump-to-nav" class="mw-jump">
+		Jump to:		<a href="#mw-head">navigation</a>, 		<a href="#p-search">search</a>
+	</div>
+	<!-- /jumpto -->
+		<!-- bodycontent -->
+	<div id=mw-content-text><div class="noarticletext">
+<p>There is currently no text in this page.
+You can <a href="/Special:Search/Action/render/UI/Effects/removeClass" title="Special:Search/Action/render/UI/Effects/removeClass">search for this page title</a> in other pages, or <span class="plainlinks"><a rel=nofollow class="external text" href="http://docs.jquery.com/mw/index.php?title=Special:Log&amp;page=Action/render/UI/Effects/removeClass">search the related logs</a></span>, but you do not have permission to create this page.
+</p>
+</div>
+</div>	<!-- /bodycontent -->
+		<!-- printfooter -->
+	<div class="printfooter">
+	Retrieved from "<a href="http://docs.jquery.com/Action/render/UI/Effects/removeClass">http://docs.jquery.com/Action/render/UI/Effects/removeClass</a>"	</div>
+	<!-- /printfooter -->
+			<!-- catlinks -->
+	<div id='catlinks' class='catlinks catlinks-allhidden'></div>	<!-- /catlinks -->
+			<div class="visualClear"></div>
+	<!-- debughtml -->
+		<!-- /debughtml -->
+</div>
+<!-- /bodyContent -->
+
+				</div>
+			</div>
+		</div><!-- /#jq-primaryContent -->
+	</div><!-- /#jq-content -->
+	<div id="jq-footer" class="jq-clearfix">
+		<div id="jq-credits">
+		<p id="jq-copyright">&copy; 2010 <a href="http://jquery.org/">The jQuery Project</a></p>
+		<p id="jq-hosting">Sponsored by <a href="http://mediatemple.net" class="jq-mediaTemple">Media Temple</a> and <a href="http://jquery.org/sponsors">others</a>.</p>
+		</div>
+		<div id="jq-footerNavigation">
+			<ul>
+				<li class="jq-download jq-first"><a href="http://docs.jquery.com/Downloading_jQuery">Download</a></li>
+				<li class="jq-documentation jq-current"><a href="http://docs.jquery.com/">Documentation</a></li>
+				<li class="jq-tutorials"><a href="http://docs.jquery.com/Tutorials">Tutorials</a></li>
+				<li class="jq-bugTracker"><a href="http://dev.jquery.com/">Bug Tracker</a></li>
+				<li class="jq-discussion jq-last"><a href="http://docs.jquery.com/Discussion">Discussion</a></li>
+			</ul>
+		</div><!-- /#jq-footerNavigation -->
+	</div><!-- /#jq-footer -->
+</div><!-- /#jq-siteContain -->
+<script>if(window.mw){
+mw.loader.state({"site":"loading","user":"missing","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.user","mediawiki.page.ready","skins.jqdocs.enhanced"], null, true);
+}</script>
+<script src="http://static.jquery.com/files/rocker/scripts/custom.js?303"></script>
+<script>if(window.mw){
+mw.loader.state({"site":"ready"});
+}</script>
+<!-- Served in 0.171 secs. --></body>
+</html>

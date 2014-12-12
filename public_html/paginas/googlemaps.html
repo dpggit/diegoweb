@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="scripts/claseGMaps.js"></script>
+<script type="text/javascript">
+	var g = new claseGMaps();
+</script>		
+</head>
+<body>
+<div id="contgmaps">
+	<div class='contenedor_gmaps'>
+		<div class='spanish'>
+			<div class="headergmaps">
+				<div class="nuevomarcador"><a href="#" class="nuevomarcador" id="infogmaps">Info</a></div>
+				<div class="nuevomarcador"><a href="#" class="nuevomarcador"id="mostrarmarca">Mostrar marcadores</a></div>
+			</div>
+			<div class="address">
+				<div class="textodireccion">Dirección</div>
+				<div style="float:left"><input id="address" type='text' value=""></div>
+				<div class="imgglobo"><a href="#" id="idcalle"><img class="imggmaps" src="imagenes/globe_sextant.png"></a></div>
+			</div>
+			<div class="titulogmaps">
+				<div class="textotitulo">Título</div>
+				<div style="float:left"><input id="titulo" type='text' value=""></div>
+				<div class="imgbd"><a href="#" id="bd"><img class="imggmaps" src="imagenes/document_save.png"></a></div>
+			</div>
+		</div>
+		<div class='english'>
+			<div class="headergmaps">
+				<div class="nuevomarcador"><a href="#" class="nuevomarcador" id="infogmapsen">Info</a></div>
+				<div class="nuevomarcador"><a href="#" class="nuevomarcador"id="mostrarmarca">Show markers</a></div>
+			</div>
+			<div class="address">
+				<div class="textodireccion">Address</div>
+				<div style="float:left"><input id="addressen" type='text' value=""></div>
+				<div class="imgglobo"><a href="#" id="idcalleen"><img src="imagenes/globe_sextant.png" width="20" height="20"></a></div>
+			</div>
+			<div class="titulogmaps">
+				<div class="textotitulo">Title</div>
+				<div style="float:left"><input id="tituloen" type='text' value=""></div>
+				<div class="imgbd"><a href="#" id="bden"><img src="imagenes/document_save.png" width="20" height="20"></a></div>
+			</div>
+		</div>
+	</div>
+	<div id="map_canvas" class='contenedor_gmaps'></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="author" content="Diego Pena Gayo"></meta>
+	<meta name="description" content="Killerproblem test"></meta>
+	<meta name="keywords" content="HTML,CSS,Jquery,JavaScript,Json"></meta>
+	<meta name="application-name" content="KillerProblem"></meta>
+	<meta name="copyright" content="Diego Pena Gayo 2013"></meta>
+	<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate"></meta>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<link rel="stylesheet" href="../fonts/juergen/stylesheet.css" type="text/css" />
+	<link rel="stylesheet" href="../fonts/stylesheet.css" type="text/css" />
+	<link href="../estilos/estilos.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../scripts/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../scripts/jquery-ui-1.8.24.custom.min.js"></script>
+	<script type="text/javascript" src="../scripts/codigoscript.js"></script>
+	<script type="text/javascript">
+        var c=new clase();
+	$(document).on("mobilinit", function(e) {
+		c.startteams();
+		});	
+	  $(document).ready(
+	      function()
+	      {
+		c.startteams();
+	      }
+        );
+    </script>
+    <title>Team list</title>
+</head>
+<body>
+<div id="container">
+	<div id="goback" class="boton">Go back</div>
+	<div id="contppalteams">
+		<div id="divteamname" class="divsteam">TEAM NAME</div>
+		<div id="divteamnamecontent" class="divsteam" style="background-color:white"></div>
+		<div id="divteamdescrip" class="divsteam">DESCRIPTION</div>
+		<div id="divteamdescripcontent" class="divsteam" style="background-color:white"></div>
+		<table id="divplayers">
+			<tr><td id="playersfloat">PLAYERS</td><td id="pointsfloat">POINTS</td></tr>
+		</table>
+	</div>
+
+</div>
+</body>
+</html>

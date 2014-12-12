@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript" src="scripts/claseCanvas.js"></script>
+    <script type="text/javascript">
+	   var v = new claseCanvas();
+   </script>
+<body>
+<div id="contcanvas">		
+	<div>
+		<a href="#" ><img id="asave" src="imagenes/takepic.png" width="20" height="20"></a>
+		<canvas id="inputCanvas" style="display:none"></canvas>
+		<canvas id="idcanvasconfig" style='background-color:black'></canvas>
+		<video id='idvideoconfig' style='display:none' ></video>
+	</div>
+    <div id='contsat' class="cont" style="clear:both">
+		<div style="font-weight:bold" class="spanish">Saturación</div>
+		<div style="font-weight:bold" class="english">Saturation</div>
+		<div id='satnohtml5' class='norangebar'>
+			<div id='contsaturabar' class="contbar"><div id='saturabar' class="bar"></div></div>
+			<img id='marcadorsat' src="imagenes/slider.jpg" class="marcador">
+		</div>
+		<input id='sathtml5' type='range' class='rangebar' min="1" max="100" value="50">
+	</div>
+	<div id='contlumi' class="cont">
+		<div style="font-weight:bold" class="spanish">Luminosidad</div>
+		<div style="font-weight:bold" class="english">Luminosity</div>
+		<div id='luminohtml5' class='norangebar'>
+			<div id='contlumibar' class="contbar"><div id='lumibar' class="bar"></div></div>
+			<img id='marcadorlumi' src="imagenes/slider.jpg" class="marcador">
+		</div>
+		<input id='lumihtml5' type='range' class='rangebar' min="1" max="100" value="50">
+    </div>
+</div>		
+</body>
+</html>

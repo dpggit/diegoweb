@@ -1,0 +1,364 @@
+var clasebase = function( ) {
+	this.sobreobj;
+	this.prueba="asdff";
+	this.ingles=false;
+	this.esmobile;
+	this.geolocenglish='Geolocation gives an aproximate address depending on the used device. To show on the map an exact address specify it in the address field. Every address can be saved in a MySQL5 database and can be shown later pushing the  "Show markers" link, which automatically will resize the zoom dimensions to show all markers on the map besides showing a list with all of them and their corresponding data. After pushing in a marker it will show the title input';
+	this.geolocspanish='La geolocalización da una dirección aproximada dependiendo del dispositivo utilizado. Para mostrar en el mapa una dirección exacta especifíquela en el campo de dirección. Cada dirección podrá ser guardada en una base de datos MySQL5 y luego podrán mostrarse pulsando al enlace "Mostrar marcadores", el cual ampliará automáticamente las dimensiones del zoom para mostrar todos los marcadores en el mapa además de mostrar una lista con todos ellos y los datos correspondientes. Al pulsar sobre cada marcador aparecerá el título introducido para el mismo.';
+	this.video=new Object();
+	this.video.currentTime=0;
+	this.arrvidwebgl=new Array();
+	for(var i=1;i<=6;i++)
+	{
+		this.arrvidwebgl[i]=new Object();
+		this.arrvidwebgl[i].readyState=0;
+	}
+	this.mitadalto=$(window).height()*0.5;
+	this.mitadancho=$(window).width()*0.5;
+	this.altocurri;
+};
+
+clasebase.prototype = {
+	iniciar:function(){
+	c.altocurri=$(document).height();
+	c.feventos();c.festilos();}
+	,
+	feventos:function()
+	{
+		$("#divmenu").on({click: function(e) {c.edivmenu(e)},tap: function(e) {c.edivmenu(e)}});
+		$("div.menu:not(#progweb)").on({click: function(e) {c.general(e)},tap: function(e) {c.general(e)}});
+		$("#progweb,#progweben").on({click: function(e) {c.eprogweb(e)},tap: function(e) {c.eprogweb(e)}});
+		$("#curriculum,#curriculumen").on({click: function(e) {c.ecurriculum(e)},tap: function(e) {c.ecurriculum(e)}});
+		$("#gmaps,#gmapsen").on({click: function(e) {c.egmaps(e)},tap: function(e) {c.egmaps(e)}});
+		$(".imglang").on({click: function(e) {c.eimglang(e)},tap: function(e) {c.eimglang(e)}});
+		$("#webgl,#webglen").on({click: function(e) {c.ewebgl(e)},tap: function(e) {c.ewebgl(e)}});
+		$("#videocam,#videocamen").on({click: function(e) {c.evideocam(e)},tap: function(e) {c.evideocam(e)}});
+		$("#canvasconfig,#canvasconfigen").on({click: function(e) {c.ecanvasconfig(e)},tap: function(e) {c.ecanvasconfig(e)}}); 
+		$("#closebig").on({click: function(e) {$("#ventana2").toggle()},tap: function(e) {$("#ventana2").toggle()}}); 
+		$("a.menu").hover(
+			function(e) {
+					 if(!c.sobreobj)
+					 {
+						 c.sobreobj=true;
+						 if($.browser.msie) 
+						 {
+							if(parseFloat($.browser.version)<9.0) $(document).append('<bgsound id="bgac" src="sonidos/clic.mp3" loop="false">');
+							else $('#audioclic').get(0).play();
+							$('#bgac').remove();$(this).addClass('sombras');
+						 }
+						 else $('#audioclic').get(0).play();$(this).css('text-shadow','5px 5px 5px #FFF')
+					 }
+			 }
+			 ,
+			 function(e)
+			 {				
+				 $(this).css('color','#fff')
+				 if($.browser.msie)  $(this).removeClass('sombras');
+				 else $(this).css('text-shadow','none')
+				 c.sobreobj=false;
+			 }
+		);
+		$("#ventana").draggable({opacity: .75,cursor: 'move'});
+		$("#ventana2").draggable({opacity: .75,cursor: 'move'});
+	}
+	,
+	festilos:function()
+	{
+		$("body").css({"width":$(window).width()+"px","height":$(window).height()+"px"});
+		if($(window).width()<480) c.esmobile=true;
+		else c.esmobile=false;
+	}
+	,
+	stopvideos:function()
+	{
+		if(c.video.currentTime>0) 
+		{
+			c.video.currentTime=0;
+			c.video.pause()
+		}
+		for(i=1;i<=6;i++)
+		{
+			if(c.arrvidwebgl[i].currentTime>0) 
+			{
+				c.arrvidwebgl[i].currentTime=0;
+				c.arrvidwebgl[i].pause();
+			}
+		}
+	}
+	,
+	edivmenu:function(e)
+	{
+		e.stopPropagation();
+		c.stopvideos();$("#centro,#enlaces").toggle("slow")
+		$("body").css({"overflow":"auto","overflow-x":"hidden"})
+	}
+	,
+	general:function(e)
+	{
+		$("#centro").css("opacity",1);
+		c.stopvideos()
+		$("body").css({"overflow":"auto","overflow-x":"hidden"})
+		if($(window).width()<=480)
+		{
+			$("#divmenu").fadeIn("slow");$("#enlaces").toggle("slow");$("body").css({"overflow":"hidden"})
+		}
+		$('#centro,#contenedor').css({'display':'block','background-color':'#FFF','position':'relative'});
+		//$('#enlaces').css({"margin-top":'20px'});
+		$(".black_blend").css("display","none")
+	}
+	,
+	ecurriculum:function(e)
+	{
+		e.stopPropagation();$(".black_blend").css("display","block");$('#datosp').html('');
+		//$("#centro").css("display","block");
+		$('#centro').css("height",$(window).height()+'px')
+		$(".black_blend").toggle();
+		$("#contenedor").animate(
+		{'margin-left':-$(window).width()*0.7+'px','opacity':'0'},
+		1000,
+		function()
+		{
+			$("#contenedor").load("paginas/curriculum.html",function()
+			{
+				$('#centro').css("height",$('#contenedor').outerHeight(true)+'px')
+				$(".black_blend").toggle();
+				c.fidioma();$(this).animate({'opacity':'1','margin-left':'0px'},1000);
+			});
+		});
+	}
+	,
+	eprogweb:function(e){e.stopPropagation();$("#pweb,#pweben").toggle();}
+	,
+	egmaps:function(e){e.stopPropagation();$("#gmapsm,#gmapsen,#gmapslistado").toggle()}
+	,
+	eimglang:function(e)
+	{
+		e.preventDefault();
+		if(!c.ingles) c.ingles=true;
+		else c.ingles=false;
+		$(".spanish,.english").toggle();
+ 		if($('div.nuevomarcador').length>0) 
+		{
+			if(c.ingles) $('#datosp').html(c.geolocenglish);
+			else $('#datosp').html(c.geolocspanish);
+		}
+		if($('#inputcanvas').length>0) 
+		{
+			if(c.ingles)
+			{
+			$('#datosp').html('You need to have a web camera installed<br>Click on the video to change pixels of a similar color, depending on the tolerance range set, to black color<br> Click on each bar to move the different configuration markers<br>You can take a picture clicking on the icon in the right top corner of the image.');
+			}
+			else
+			{
+			$('#datosp').html('Necesita tener una cámara web Instalada<br>Pulse sobre el vídeo para cambiar los píxeles de un color parecido, según el grado de tolerancia configurado, al negro.<br> Pulse sobre la barra para mover los marcadores de configuración<br>Se puede sacar una fotografía pulsando sobre el icono en la esquina superior derecha de la imagen.');
+			}
+			c.centrarAbs($('#datosp'),$('body'));
+		}
+	}
+	,
+	egmaps:function(e)
+	{
+		e.stopPropagation();
+		if(!navigator.geolocation) 
+		{
+		  if(c.ingles) c.ventanaEmergente("Your browser doesn't support geolocation",5000,false)
+		  else c.ventanaEmergente('El navegador no soporta geolocalización',5000,false)
+		  return;
+		}
+		$('#datosp').html('');
+		$("#centro").css("height",$(window).height()+'px')
+		$("#contenedor").animate(
+		{'margin-left':-$(window).width()*0.7+'px','opacity':'0'},
+		1000,
+		function(){$(this).load("paginas/googlemaps.html",function(){g.initialize()});});
+	}
+	,
+	ewebgl:function(e)
+	{
+		e.stopPropagation();$('#datosp').html('');
+		if(!window.WebGLRenderingContext || $.browser.opera) 
+		{
+			if(c.ingles) c.ventanaEmergente("Your browser doesn't support webGL correctly",5000,false);
+			else c.ventanaEmergente('El navegador no soporta webGL correctamente',5000,false);
+		}
+		else 
+		{
+			$("#centro").css("height",$(window).height()+'px')
+			$("#contenedor").animate(
+				{'margin-left':-$(window).width()*0.7+'px','opacity':'0'},
+				1000,
+				function()
+				{
+						$(this).load("paginas/webgl.html",function(){
+						$(this).animate({'opacity':'1','margin-left':'0px'},1000)
+						w.init();w.animate();
+					})
+				})
+		}
+	}
+	,
+	evideocam:function(e)
+	{
+		e.stopPropagation();$('#datosp').html('');
+		if(!c.soportaCanvas()) return;	
+			navigator.getUserMedia = ( navigator.getUserMedia ||
+		 navigator.webkitGetUserMedia ||
+		 navigator.mozGetUserMedia ||
+		 navigator.msGetUserMedia);
+		if (navigator.getUserMedia) 
+		{
+			$("#centro").css("height",$(window).height()+'px')
+			$("#contenedor").animate(
+			{'margin-left':-$(window).width()*0.7+'px','opacity':'0'},
+			1000,
+			function()
+			{
+				$("#contenedor").load("paginas/videocam.html",function(){
+					$(this).animate({'opacity':'1','margin-left':'0px'},1000)
+					v.feventoscam();
+					v.festiloscam();
+					v.initcam();
+				})
+			})
+		}
+		else 
+		{
+			if(c.ingles) c.ventanaEmergente("Your browser doesn't support webRTC",5000,false);
+			else c.ventanaEmergente('El navegador no soporta webRTC',5000,false);
+		}
+	}
+	,
+	ecanvasconfig:function(e)
+	{
+		e.stopPropagation();$('#datosp').html('');if(!c.soportaCanvas()) return;			
+		if($.browser.safari) 
+		{
+			if(c.ingles) c.ventanaEmergente("Your browser doesn't support html5 video correctly");
+			else c.ventanaEmergente('El navegador no soporta correctamente vídeo html5');
+			return;
+		}
+		$("#centro").css("height",$(window).height()+'px')
+		$("#contenedor").animate(
+		{'margin-left':-$(window).width()*0.7+'px','opacity':'0'},
+		1000,
+		function()
+		{
+			$(this).load("paginas/canvasvideoconfig.html",function(){v.iniciar()});
+		});
+	}
+	,	
+	abrirRect:function(arriba,derecha,abajo,izquierda,altura,anchura,vel,iddiv)
+	{
+		  var extravel=0;
+		  var arriba=parseInt(arriba);derecha=parseInt(derecha);abajo=parseInt(abajo); izquierda=parseInt(izquierda);
+	      var altura=parseInt(altura);anchura=parseInt(anchura);vel=parseInt(vel);sabajo="";sarriba="";sizquierda="";
+		  var sderecha="";opacidad = 0;ratio = 0;
+		  if($.browser.msie){vel=8;ratio=0.01;extravel=-7}
+		  else if($.browser.mozilla) {extravel=2;ratio = 1/(($("#centro").width()+$(document).height())/4);}
+		  else { extravel=1;ratio = 1/(($("#centro").width()+$(document).height())/(vel*30));}
+		  if($.browser.chrome) extravel=3;
+		  var parar=setInterval(
+		  function()
+		  {
+		  		for(i=0;i<vel+extravel;i++)
+		  		{
+					  if(abajo<$("#centro").height() || derecha<anchura) 
+					  {
+					  	// Alto inicial de 3px, al llegar al max ancho continua aumentando verticalmente
+						if((abajo-c.mitadalto)<altura)
+						{
+							arriba-=vel;abajo+=vel;
+							if(arriba<0) arriba=0;
+							// para mostrar de arriba a abajo
+							//if(abajo>altura) abajo=altura;
+							sabajo=abajo+"px";sarriba=arriba+"px";
+						}
+						// Se va alargando hasta la anchura max y luego la var altura es la altura maxima de la pag lo que permite que siga aumentando la altura
+						if(derecha<anchura)
+						{
+							izquierda-=vel;derecha+=vel;
+							if(izquierda<0) izquierda=0;
+							if(derecha>anchura) derecha=anchura;
+							sizquierda=izquierda+"px";sderecha=derecha+"px";
+							if(derecha==anchura) altura=$("#centro").height();
+						}
+						$(iddiv).css("clip","rect("+sarriba+","+sderecha+","+sabajo+","+sizquierda+")");
+						opacidad+=ratio;
+						$(iddiv).css("opacity",opacidad);
+					  }
+					  else{$("#contenedor").fadeIn("slow");
+					  $("#centro").css("position","relative")
+					  $("#enlaces").fadeIn("slow");
+					  clearInterval(parar)}
+			  	}
+		  }
+		  , 1);
+	}
+  ,
+  ventanaEmergente:function(texto, tiempo,bajo)
+  {
+	   if(!tiempo && tiempo!=0) tiempo=5000;
+	   $('#ventana').css('display','block');$('#ventana').fadeIn(1);$('#ventana').html(texto);
+	   $('#ventana').css("width",$('#ventana').width()+30+'px');
+	   c.centrarAbs($('#ventana'),$('#centro'),'soloancho');
+	   if(tiempo>0) $('#ventana').fadeOut(tiempo);$('#ventana').css("width",$('#ventana').width()-20+'px');
+  }
+  ,
+  ventanaEmergenteGrande:function(datos)
+  {
+	  $('#ventana2').css('display','block')
+	  if($('#contventana2').html()!='') {$('#contventana2').html(datos);return;}
+	  $('#contventana2').html(datos);
+	  $('#ventana2').css("width",$('#ventana2').width()*1.5+'px');
+	  c.centrarAbs($('#ventana2'),$('body'));
+  }
+  ,
+  soportaCanvas:function()
+  {
+		var objcanvas = document.createElement('CANVAS');$(document).append(objcanvas);
+		if(!objcanvas.getContext)
+		{
+			if(c.ingles) c.ventanaEmergente("Your browser doesn't support canvas");
+			else c.ventanaEmergente('El navegador no soporta canvas');
+			$(objcanvas).remove();
+			return false;
+		}
+		$(objcanvas).remove();return true;
+  }
+  ,
+  eliminarPx:function(texto)
+  {
+	  return parseFloat(texto.replace('px',''));
+  }
+  ,
+  centrar:function(elemento,tipo)
+  {
+  	var padre = elemento.offsetParent();
+  	if(tipo!='soloancho') 
+  	{
+  	  	var vtop = padre.height()*0.5-elemento.outerHeight(true)*0.5;
+  		if(vtop<0) vtop=0;
+  		elemento.css({"top":"0px","margin-top":vtop*0.75+'px'});
+  	}
+  	if(tipo!='soloalto') elemento.css({"margin-left":padre.width()*0.5-elemento.width()*0.5+'px'});
+  }
+  ,
+  centrarAbs:function(elemento,target,tipo)
+  {
+  	elemento.css({"top":"0px","left":"0px"});
+    if(tipo!='soloancho') 
+  	{
+  	  	var vtop=0;
+	  	vtop=target.offset().top+target.outerHeight(true)*0.5-elemento.outerHeight(true)*0.5;
+	  	if(vtop<0) vtop=0;
+	  	elemento.css({"margin-top":vtop+'px'});
+	}
+  	if(tipo!='soloalto') elemento.css({"margin-left":target.offset().left+target.width()*0.5-elemento.width()*0.5+'px'});
+  }
+  ,
+  fidioma:function()
+  {
+	if(c.ingles) {$(".spanish").css("display","none");$(".english").css("display","block");}
+	else {$(".spanish").css("display","block");$(".english").css("display","none");}
+  }
+}

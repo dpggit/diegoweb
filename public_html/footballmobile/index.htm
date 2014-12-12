@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#">	
+<head>
+	<meta name="author" content="Diego Pena Gayo"></meta>
+	<meta name="description" content="Killerproblem test"></meta>
+	<meta name="keywords" content="HTML,CSS,Jquery,JavaScript,Json"></meta>
+	<meta name="application-name" content="KillerProblem"></meta>
+	<meta name="copyright" content="Diego Pena Gayo 2013"></meta>
+	<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate"></meta>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no"></meta>
+	<link rel="stylesheet" href="fonts/juergen/stylesheet.css" type="text/css" />
+	<link rel="stylesheet" href="fonts/stylesheet.css" type="text/css" />
+	<link href="estilos/estilos.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="scripts/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery-ui-1.8.24.custom.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.mobile-1.3.1.min.js"></script>
+	<script type="text/javascript" src="scripts/codigoscript.js"></script>
+	<script type="text/javascript" src="scripts/modernizr.js"></script>
+				
+	<script type="text/javascript">
+        var c=new clase();
+	$(document).on("mobilinit", function(e) {
+		c.start();
+		});	
+        $(document).ready(
+              function()
+              {
+                c.start();		
+              }
+        );
+    </script>
+    <title>Main menu</title>
+</head>
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<noscript><div class="noscript">You need to have javascript enabled</div></noscript>
+	<div class="fb-comments" data-href="http://dpg.16mb.com/killerproblem/" data-width="280" data-mobile="false" data-num-posts="10"></div>
+	<div class="menumain">
+			<div id="team" class="menusecond"><div id="teaminfo" class="wraptext">Team information</div></div>
+			<div id="frm" class="frm">
+				<input id="teamname" name="teamname" class="tinput" value="Team name"></input>
+				<input id="botonteamname" name="botonteamname" class="boton" value="Search" data-role="none" type="button"></input>
+			</div>
+			<div id="playerpoints" class="menusecond"><div id="ppoints" class="wraptext">Player points</div></div>
+			<div id="frmpoints" class="frm">
+				<input id="playername" name="playername" class="tinput" value="Player name"></input>
+				<input id="botonpoints" name="botonpoints" class="boton" value="Search" data-role="none" type="button"></input>
+				<div id="tableplayer">
+					<div id="playersfloat" style="float:left"></div><div id="pointsfloat" style="float:left"></div>
+				</div>
+			</div>
+			<div id="addplayer" class="menusecond"><div id="aplayer" class="wraptext">Add new player</div></div>
+			<div id="frmaddplayer" class="frm">
+				<div class="centertext">Player name</div>
+				<input id="addplayername" name="addplayername" class="tinput" value="Player name"></input>
+				<div class="centertext">Team name</div>
+				<input id="addteamname" name="addteamname" class="tinput" value="Team name"></input>
+				<input id="botonaddplayer" name="botonaddplayer" class="boton" data-role="none" value="Insert" type="button" style="clear:both"></input>
+			</div>
+	</div>
+	<div id="contfblike">
+		<fb:like class="fb-like" href="http://dpg.16mb.com/killerproblem/" send="false" width="150" show_faces="false"></fb:like>
+		<div id="fb-likebuttons">Facebook comments</div>
+	<div>
+	<div id="flotante">
+			<div id="contentfloating"></div>
+			<input id="botonaaccept" class="boton" value="Accept" data-role="none" type="button"></input>
+	</div>
+	<div id="divdescrip" >
+		<div class="menusecond"><div>Team description</div></div>
+		<textarea rows="5" cols="5" id="teamdescrip" name="teamdescrip" class="tinput"></textarea>
+		<input id="botonadddescrip" name="botonadddescrip" class="boton" value="Insert" type="button" data-role="none"></input>
+	</div>
+	<div id="blackshadow"></div>
+</div>
+</body>
+</html>

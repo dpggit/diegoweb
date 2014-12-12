@@ -1,0 +1,51 @@
+<script>
+window.onload=
+function()
+	  {
+		parent.document.getElementById("galeriaimg").click();
+		/*
+		parent.document.getElementById("imgpreview").setAttribute("src","<?php echo $_SESSION['archivofileimg']?>");
+		parent.document.getElementById("conjuntofotos").innerHTML=document.getElementById("conjuntofotos").innerHTML;
+		
+		parent.c.cargarPrincipal();
+		document.getElementById('imgpreview').style.display='block'
+		parent.document.getElementById('contenedor').innerHTML=document.body.innerHTML;
+		parent.c.redimFile()
+		parent.c.recorrerFotos('','contenedor');
+		parent.c.cambiarfiler(document.getElementById("vsubirimagen").value)
+		
+		var ancholistado=parent.document.getElementById("contenedor").offsetWidth;
+		var anchofotos=parent.document.getElementById("inputsfotos").offsetWidth+30;
+		parent.document.getElementById("conjuntofotos").style.marginLeft=(ancholistado/2-anchofotos/2)+'px';
+		*/
+		parent.c.eliminarIframe();
+		
+	  }
+</script>
+
+<input id='vsubirimagen' value='<?php echo $_POST['subirimagen']?>'>
+
+<div id='divbaseimagenes'>
+	<div class="titulo">Añadir imagen</div>
+	<div id='divbasesubirimagen'>
+		<div id='divsubirimagen'></div>
+		<input type='image' src='/imagenes/flechad.jpg' id='bexamfile'>
+		<?php echo $this->formfile?>
+	</div>
+	<div id='divimgpreview'>
+		<img src='<?php echo $_SESSION['archivofileimg']?>' id='imgpreview' >
+		<input type='hidden' value='<?php echo $_SESSION['archivofileimg']?>' id='fotoactual' >
+	</div>
+	<div id='conjuntofotos'>
+		<input type='button' value='<' class="moverimagenes" onclick="c.recorrerFotos('menos','contenedor')">
+		<div class='inputsfotos' id='inputsfotos'>
+		<?php 
+		if($this->galeriaimg)
+		{
+		foreach($this->galeriaimg as $src){ ?>
+		<div class='divrfot'><input class='inputrestofotos' type="image" src="<?php echo $src?>" onclick='c.cambiarPrincipal(this,"contenedor")' title="Imagenes y texto"></div>
+		<?php } }?>
+		</div>
+		<input type='button' value='>' class="moverimagenes" onclick="c.recorrerFotos('mas','contenedor')">
+	</div>
+</div>

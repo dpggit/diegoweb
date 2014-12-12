@@ -1,0 +1,27 @@
+<div id='divbaseimagenes'>
+	<div class="titulo">Añadir imagen</div>
+	<div id='divbasesubirimagen'>
+		<div id='divsubirimagen'></div>
+		<input type='image' src='/imagenes/flechad.jpg' id='bexamfile'>
+		<?php echo $this->formfile?>
+	</div>
+	<div id='divimgpreview'>
+		<img src='<?php echo $_SESSION['archivofileimg']?>' id='imgpreview' >
+		<input type='hidden' value='<?php echo $_SESSION['archivofileimg']?>' id='fotoactual' >
+	</div>
+	<?php 
+	if(count($this->galeriaimg)>0)
+	{?>
+	<div id='conjuntofotos'>
+		<input type='button' value='<' class="moverimagenes" onclick="c.recorrerFotos('menos','contenedor')">
+		<div class='inputsfotos' id='inputsfotos'>
+		<?php 
+		foreach($this->galeriaimg as $src){ 
+		?>
+		<div class='divrfot'><input class='inputrestofotos' type="image" src="<?php echo $src?>" onclick='c.cambiarPrincipal(this,"contenedor")' title="Imagenes y texto"></div>
+		<?php  }?>
+		</div>
+		<input type='button' value='>' class="moverimagenes" onclick="c.recorrerFotos('mas','contenedor')">
+	</div>
+	<?php } ?>
+</div>
